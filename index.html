@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word-Kompetenztrainer – Programm 4, Baustein F (Tabellen – Tabelleneigenschaften)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="missionpanel">
+    <div class="app-title">Tabellen – Tabelleneigenschaften</div>
+    <div class="brand">
+      <span class="brand-num" id="brandNum">F</span>
+      <span class="brand-name" id="familyLabel">Zellenausrichtung</span>
+    </div>
+
+    <div class="progress">
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <span class="progress-label" id="progressLabel">Mission 1 / 15</span>
+    </div>
+
+    <div id="panelBody"><!-- Erklärung / Demo / Aufgabe – wird von engine.js gerendert --></div>
+  </aside>
+
+  <main class="wordwindow">
+    <div class="titlebar">
+      <span class="titlebar-dot"></span>
+      <span class="titlebar-name" id="docName">Übungsdokument.docx</span>
+    </div>
+
+    <div class="ribbon" id="ribbon">
+      <div class="ribbon-group">
+        <span class="ribbon-label">Tabelle</span>
+        <button type="button" class="rbtn" id="btn-eigenschaften">⚙ Tabelleneigenschaften</button>
+      </div>
+    </div>
+
+    <div class="pagewrap">
+      <div class="page" id="page">
+        <div class="editor" id="editor" contenteditable="false" spellcheck="false"></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Tabelleneigenschaften-Dialog: zwei Reiter, "Tabelle" und "Zelle" -->
+<div class="dialog-backdrop" id="propsBackdrop" hidden>
+  <div class="dialog dialog-wide" role="dialog" aria-label="Tabelleneigenschaften">
+    <h2>Tabelleneigenschaften</h2>
+
+    <div class="tabs">
+      <button type="button" class="tab-btn active" id="tabBtnTabelle" data-tab="tabelle">Tabelle</button>
+      <button type="button" class="tab-btn" id="tabBtnZelle" data-tab="zelle">Zelle</button>
+    </div>
+
+    <div class="tab-panel" id="panelTabelle">
+      <label class="toggle-row"><input type="checkbox" id="chkRahmen"> Rahmen anzeigen</label>
+      <label class="toggle-row"><input type="checkbox" id="chkKopfzeile"> Kopfzeile hervorheben</label>
+      <label class="toggle-row"><input type="checkbox" id="chkGebaendert"> Gebänderte Zeilen</label>
+    </div>
+
+    <div class="tab-panel" id="panelZelle" hidden>
+      <p class="dialog-hint" id="zelleHint">Klickt zuerst eine Zelle in der Tabelle an.</p>
+      <div class="dlabel">Ausrichtung</div>
+      <div class="btn-row">
+        <button type="button" class="rbtn" id="align-links">Links</button>
+        <button type="button" class="rbtn" id="align-zentriert">Zentriert</button>
+        <button type="button" class="rbtn" id="align-rechts">Rechts</button>
+      </div>
+      <div class="dlabel">Hintergrundfarbe</div>
+      <div class="swatch-row">
+        <button type="button" class="swatch" id="shade-rot" data-color="#F4D9D3" style="--sw:#F4D9D3" title="Rot"></button>
+        <button type="button" class="swatch" id="shade-blau" data-color="#D7E6F2" style="--sw:#D7E6F2" title="Blau"></button>
+        <button type="button" class="swatch" id="shade-gruen" data-color="#DCEEE1" style="--sw:#DCEEE1" title="Grün"></button>
+        <button type="button" class="swatch swatch-none" id="shade-keine" data-color="transparent" title="Keine"></button>
+      </div>
+    </div>
+
+    <div class="dialog-actions">
+      <button type="button" class="btn btn-primary" id="propsClose">Schließen</button>
+    </div>
+  </div>
+</div>
+
+<script src="engine.js"></script>
+<script src="missionen.js"></script>
+</body>
+</html>
